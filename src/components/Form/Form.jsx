@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import css from './Form.module.css';
-// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
 import { contacts } from 'redux/selectors';
@@ -28,8 +27,6 @@ function Form() {
     }
     reset();
   };
-  // dispatch(addContact(name, number));
-  // handleSubmit(name, number);
 
   const reset = () => {
     setName('');
@@ -68,9 +65,5 @@ function Form() {
     </form>
   );
 }
-
-// Form.propTypes = {
-//   handleSubmit: PropTypes.func.isRequired,
-// };
 
 export default Form;

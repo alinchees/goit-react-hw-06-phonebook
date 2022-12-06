@@ -7,7 +7,6 @@ const contactsInitialState = [
     data: [],
   },
 ];
-
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactsInitialState,
@@ -36,12 +35,11 @@ const contactsSlice = createSlice({
 const persistConfig = {
   key: 'root',
   storage,
-  //   whitelist: ['contacts'],
 };
 
 export const contactsReducer = persistReducer(
   persistConfig,
   contactsSlice.reducer
 );
-// export const contactsReducer = contactsSlice.reducer;
+
 export const { addContact, deleteContact } = contactsSlice.actions;
