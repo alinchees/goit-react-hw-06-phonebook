@@ -7,59 +7,60 @@ import ContactList from 'components/ContactList/ContactList';
 import css from './App.module.css';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(null);
-  const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState(null);
+  // const [filter, setFilter] = useState('');
 
-  const handleSubmit = (name, number, id = nanoid()) => {
-    if (contacts) {
-      contacts.some(item => item.name === name)
-        ? alert(`${name} is already in contacts`)
-        : setContacts([{ name, number, id }, ...contacts]);
-    } else {
-      setContacts([{ name, number, id }]);
-    }
-  };
+  // const handleSubmit = (name, number, id = nanoid()) => {
+  //   if (contacts) {
+  //     contacts.some(item => item.name === name)
+  //       ? alert(`${name} is already in contacts`)
+  //       : setContacts([{ name, number, id }, ...contacts]);
+  //   } else {
+  //     setContacts([{ name, number, id }]);
+  //   }
+  // };
 
-  useEffect(() => {
-    const LScontacts = JSON.parse(localStorage.getItem('contacts'));
-    if (LScontacts) {
-      setContacts(LScontacts);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const LScontacts = JSON.parse(localStorage.getItem('contacts'));
+  //   if (LScontacts) {
+  //     setContacts(LScontacts);
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (contacts) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    }
-  }, [contacts]);
+  // useEffect(() => {
+  //   if (contacts) {
+  //     localStorage.setItem('contacts', JSON.stringify(contacts));
+  //   }
+  // }, [contacts]);
 
-  const handleFilter = e => {
-    setFilter(e.currentTarget.value);
-  };
+  // const handleFilter = e => {
+  //   setFilter(e.currentTarget.value);
+  // };
 
-  const getFilteredContacts = () => {
-    const normalizedFilter = filter.toLocaleLowerCase();
-    if (contacts) {
-      return contacts.filter(contact =>
-        contact.name.toLowerCase().includes(normalizedFilter)
-      );
-    }
-  };
+  // const getFilteredContacts = () => {
+  //   const normalizedFilter = filter.toLocaleLowerCase();
+  //   if (contacts) {
+  //     return contacts.filter(contact =>
+  //       contact.name.toLowerCase().includes(normalizedFilter)
+  //     );
+  //   }
+  // };
 
-  const handleDelete = e => {
-    setContacts(
-      contacts.filter(contact => contact.id !== e.target.closest('li').id)
-    );
-  };
+  // const handleDelete = e => {
+  //   setContacts(
+  //     contacts.filter(contact => contact.id !== e.target.closest('li').id)
+  //   );
+  // };
 
-  const filteredContacts = getFilteredContacts();
+  // const filteredContacts = getFilteredContacts();
+
   return (
     <div className={css.Phonebook}>
       <h1>Phonebook</h1>
-      <Form handleSubmit={handleSubmit} />
+      <Form />
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={handleFilter} />
-      <ContactList contacts={filteredContacts} onClick={handleDelete} />
+      <Filter />
+      <ContactList />
     </div>
   );
 };
