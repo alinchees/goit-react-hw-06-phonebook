@@ -12,7 +12,7 @@ const Filter = () => {
         className={css.FilterInput}
         type="text"
         // value={value}
-        onChange={e => dispatch(setFilter(e.target.value))}
+        onChange={e => dispatch(setFilter(e.target.value.toLowerCase()))}
       />
     </label>
   );
