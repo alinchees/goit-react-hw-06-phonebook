@@ -14,7 +14,7 @@ function Form() {
   const [number, setNumber] = useState('');
 
   const contactsSelector = useSelector(contacts);
-  const contactsArr = contactsSelector[0].data;
+  const contactsArr = contactsSelector.data;
 
   const onhandleSubmit = e => {
     e.preventDefault();
